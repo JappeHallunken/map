@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Verdana, "Open Sans", "Segoe UI", sans-serif;
+}
+
+/* dark mode user-agent-styles */
+/* improves punctuation in supported browsers */
+html {
+  color-scheme: light dark;
+  hanging-punctuation: first last;
+}
+
+/* min body height */
+body {
+  min-height: 100svh;
+  background-color: #e9e9e9;
+  color: #111;
+  
+  position: relative;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Improved heading in supported browsers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* improve readability with max-width on paragraphs and lists */
+/* prevent orphans in supported browsers */
+p,
+li {
+  max-width: var(--p-max-width, 65ch);
+  text-wrap:pretty;
+}
+
+
+/* Layout */
+
+.banner {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: transparent;
+}
+#wrapper {
+  display: flex;
+  flex-direction: row;
+}
+h2 {
+  text-align: center;
+  margin-top: 0.3lh;
+  margin-bottom: 0.6lh;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+h4 {
+  text-align: initial;
+  margin-top: .4lh;
+  margin-bottom: .1lh;
+}
+
+#listsContainer {
+  width: fit-content;
+  position: absolute;
+  overflow-x: hidden;
+  padding-left: 0;
+  border: 1px solid rgb(0, 0, 0);
+  /* transform: translatex(-100%); */
+  transition: transform 0.5s ease-in-out;
+  color:black;
+}
+
+.country-name {
+  color:black;
+  font-weight: 900;
+}
+
+.sidebar ul {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  padding-inline:.2em;
+  padding-block: 0 .6em;
+}
+.sidebar ul > li {
+  font-weight: normal;
+  font-size: 0.9em;
+  margin-left: 1ex;
+  list-style: none;
+  color:black;
+  line-height: 1.2lh;
+}
+.sidebar ul > li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#map {
+  height: 100dvh; /* Adjust as needed */
+  width: 100%;
+}
+.container {
+  padding: 1.4rem;
+  margin: auto;
+}
+
+.hamburger {
+  position: absolute;
+  color:black;
+  left: 0;
+  top: 80px;
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  z-index: 9999;
+  background-color: rgb(255, 255, 255);
+  padding-inline:.4em;
+  padding-block:.2em;
+  border-radius: 0 .3em .3em 0;
+  /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
+  border: 2px solid rgba(0,0,0,0.4);
+  border-left:0;
+  font-family: "Open Sans", "Segoe UI",Helvetica, Verdana, Arial, sans-serif;
+  font-size: 1.3em;;
+  font-weight: 600;
+  line-height: 1.2lh;
+  transition: top 0.4s ease-in-out;
+}
+.hamburger.active {  
+  top:0;
+  transition: top 0.4s ease-in-out;
+}
+.hamburger__icon {
+  display: inline-block;
+  height: 3px;
+  width: 30px;
+  background: black;
+  border-radius: 2px;
+}
+
+.sidebar {
+  z-index: 9998;
+  border: 2px solid rgba(0,0,0,0.4);
+  border-left: 0;
+  height: 100svh;
+  width: 40ch;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: .3em;
+  display: flex;
+  flex-direction: column;
+  transform: translatex(-100%);
+  transition: transform 0.4s ease-in-out;
+  overflow-y:scroll;
+  color:black;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+
+}
+.sidebar__close {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  background: #000;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translatex(-100%);
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out 0.2s;
+}
+
+.sidebar::after {
+  transform: rotate(90deg);
+}
+
+.sidebar:hover::before {
+  transform: translatex(0);
+  opacity: 1;
+}
+
+.menu-control {
+  display: none;
+}
+
+.menu-control:checked + .sidebar {
+  transform: translateX(0);
+}
+
+.menu-control:checked + .sidebar .sidebar__close {
+  transform: translateX(0) rotate(45deg);
+}
+
+.menu-control:checked + .sidebar .sidebar__menu a {
+  transform: translatex(0);
+}
