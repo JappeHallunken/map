@@ -1,4 +1,6 @@
-const map = L.map("map").setView([52.51411, 13.46554], 10);
+const map = L.map("map").setView([46.437857, -51.359375], 4);
+let locateMe = L.control.locate({initialZoomLevel: 10, initialZoomLevel: 6,}).addTo(map);
+locateMe.start();
 const listsContainer = document.getElementById("sidebar");
 const markers = {
   Germany: [
@@ -197,7 +199,6 @@ const markers = {
   ],
 };
 
-
 // Leaflet Standardkarte
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap contributors",
@@ -264,3 +265,8 @@ menuControl.addEventListener("change", function () {
     hamburger.classList.remove("active");
   }
 });
+function onMapClick(e) {
+  alert("You clicked the map at " + e.latlng);
+}
+
+map.on('click', onMapClick);

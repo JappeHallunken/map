@@ -121,6 +121,7 @@ h4 {
     padding: .4em;
     border: 0;
     text-align: start;
+    color:black;
     &> img {
       display: inline;
       color: transparent; 
@@ -149,7 +150,7 @@ h4 {
   position: absolute;
   color: black;
   left: 0;
-  top: 80px;
+  top: 130px;
   display: flex;
   height: fit-content;
   width: fit-content;
