@@ -175,7 +175,7 @@ h4 {
 }
 
 .hamburger::before {
-  content: "Shop List";
+  content: "Menu";
   transition: font-size rgba(0, 0, 0, 0);
 }
 
@@ -256,4 +256,11 @@ h4 {
 .leaflet-popup-content > a {
   word-break: break-word;
   overflow-wrap: break-word;
+}
+.list-markers-li a {
+  width: 100%;
+}
+
+.marker-title, .countryList {
+  font-weight: bolder;
 }

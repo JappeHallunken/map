@@ -206,7 +206,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // Icon Definition
 var piercIcon = L.icon({
-  iconUrl: "assets/piercingPinW.png",
+  iconUrl: "../assets/piercingPinW.png",
   iconSize: [70, 70],
 });
 
@@ -234,7 +234,7 @@ for (const country in markers) {
   markers[country].forEach((marker) => {
     const listItem = document.createElement("li");
     const listItemButton = document.createElement("button");
-    const pin = `<img alt="Map Pin" fetchpriority="high" width="10" height="10" decoding="async" data-nimg="1" src="./assets/map-pin.svg"></img>`;
+    const pin = `<img alt="Map Pin" fetchpriority="high" width="10" height="10" decoding="async" data-nimg="1" src="../assets/map-pin.svg"></img>`;
     listItemButton.innerHTML = pin + marker.name;
     listItem.onclick = () => {
       const index = allMarkers.indexOf(marker); // Verwende die allMarkers-Array, um den Index zu finden
@@ -265,8 +265,10 @@ menuControl.addEventListener("change", function () {
     hamburger.classList.remove("active");
   }
 });
-function onMapClick(e) {
+/* function onMapClick(e) {
   alert("You clicked the map at " + e.latlng);
 }
 
-map.on('click', onMapClick);
+map.on('click', onMapClick); */
+
+
